@@ -1,0 +1,30 @@
+version: '3'
+services:
+  linux:
+    build:
+      context: .
+      dockerfile: Dockerfile.linux
+    networks:
+      - dev-net
+  windows:
+    build:
+      context: .
+      dockerfile: Dockerfile.windows
+    networks:
+      - dev-net
+
+networks:
+  dev-net:
+    driver: bridge
+
+# version: '3': Defines the version of the docker-compose format.
+# services: A section where you define each container (or service) that Docker Compose will run.
+# linux: Defines a Linux container.
+# build: Specifies how to build the image.
+# context: .: The build context is the current directory.
+# dockerfile: Dockerfile.linux: Specifies the Dockerfile.linux to use for building the Linux environment.
+# networks: Defines the network that the container will be connected to, in this case, a bridge network called dev-net.
+# windows: Defines a Windows container in a similar way.
+# networks: Defines the network configuration for the containers.
+# dev-net: A custom bridge network that allows containers to communicate with each other.
+#docker-compose up    - this command is use to run this script 

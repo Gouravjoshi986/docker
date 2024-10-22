@@ -1,0 +1,5 @@
+#docker file for ubuntu (linux)
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y build-essential curl git vim
+CMD ["/bin/bash"]
+

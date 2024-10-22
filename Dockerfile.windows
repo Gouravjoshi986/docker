@@ -1,0 +1,5 @@
+#docker file for windows 
+FROM mcr.microsoft.com/windows/servercore:1tsc2022
+SHELL [ "powershell","-command"]
+RUN Install-WindowsFeature -Name Web-Server
+CMD [ "cmd" ]

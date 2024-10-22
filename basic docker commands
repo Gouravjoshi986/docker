@@ -1,0 +1,126 @@
+Basic Docker Commands:
+
+docker --version
+Displays the installed version of Docker.
+
+docker info
+Provides detailed information about the Docker installation, including the number of containers, images, and more.
+
+docker pull <image>
+Downloads a Docker image from Docker Hub (or other configured registry).
+Example: docker pull ubuntu:latest
+
+docker build -t <image-name> <path>
+Builds a Docker image from a Dockerfile.
+-t is used to tag the image with a name.
+Example: docker build -t my-image .
+
+docker run <image>
+Runs a container based on the specified Docker image.
+Example: docker run ubuntu
+
+docker run -it <image>
+Runs a container interactively with a terminal.
+-i is for interactive, -t is for a terminal.
+Example: docker run -it ubuntu /bin/bash
+
+docker ps
+Lists all running containers.
+Use docker ps -a to list all containers (running and stopped).
+
+docker stop <container-id>
+Stops a running container.
+Example: docker stop 3f0b1f3c12a3
+
+docker start <container-id>
+Starts a stopped container.
+Example: docker start 3f0b1f3c12a3
+
+docker restart <container-id>
+Restarts a running or stopped container.
+Example: docker restart 3f0b1f3c12a3
+
+docker rm <container-id>
+Removes a stopped container.
+Example: docker rm 3f0b1f3c12a3
+
+Use docker rm -f <container-id> to force-remove a running container.
+
+docker rmi <image-id>
+Removes a Docker image.
+Example: docker rmi my-image:latest
+
+docker images
+Lists all the Docker images on the system.
+
+docker exec -it <container-id> <command>
+Executes a command inside a running container interactively.
+Example: docker exec -it 3f0b1f3c12a3 /bin/bash
+
+docker logs <container-id>
+Shows the logs of a container.
+Example: docker logs 3f0b1f3c12a3
+
+docker cp <source> <destination>
+Copies files between a container and the host machine.
+Example: docker cp 3f0b1f3c12a3:/app/file.txt ./file.txt
+
+
+Networking and Volumes:
+
+docker network ls
+Lists all Docker networks.
+
+docker network create <network-name>
+Creates a custom network for Docker containers.
+Example: docker network create my-network
+
+docker volume ls
+Lists all Docker volumes.
+
+docker volume create <volume-name>
+Creates a Docker volume for persistent data storage.
+Example: docker volume create my-volume
+
+docker run -v <volume-name>:<container-path> <image>
+Runs a container and mounts a volume.
+Example: docker run -v my-volume:/app/data ubuntu
+
+docker network connect <network-name> <container-id>
+Connects an existing container to a network.
+Example: docker network connect my-network 3f0b1f3c12a3
+
+docker inspect <container-id>
+Shows detailed information about a container or image, including networking and volume info.
+Example: docker inspect 3f0b1f3c12a3
+
+Docker Compose Commands:
+
+docker-compose up
+Starts the services defined in the docker-compose.yml file.
+Use docker-compose up -d to run it in the background.
+
+docker-compose down
+Stops and removes all containers, networks, and volumes created by docker-compose up.
+
+docker-compose build
+Builds the Docker images specified in the docker-compose.yml file.
+
+docker-compose ps
+Lists all running services defined by docker-compose.
+
+docker-compose logs
+Shows the logs for all services defined by docker-compose.
+
+
+Cleaning Up Docker: 
+
+docker system prune
+Cleans up unused Docker data (containers, networks, images, etc.).
+Example: docker system prune -a to remove all stopped containers and dangling images.
+
+docker volume prune
+Removes all unused Docker volumes.
+
+docker network prune 
+Removes all unused Docker networks.

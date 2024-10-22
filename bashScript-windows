@@ -1,0 +1,6 @@
+docker build -t windows-img -f Dockerfile.windows .  
+// we use this command to build a docker image for windows with name windows-img 
+-t to give it a tag  // . is used to specify the current running directory 
+
+docker run -it windows-img 
+// -it is used for interactive terminal 
